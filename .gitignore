@@ -1,0 +1,16 @@
+.DS_Store
+node_modules/
+.env
+.vscode/
+dist/
+coverage/
+*.log
+# OS
+.DS_Store
+# macOS
+.AppleDouble
+.LSOverride
+# Thumbnails
+._*
+# Icon must end with two \\r
+Icon\r\n
