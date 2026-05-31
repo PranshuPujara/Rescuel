@@ -177,28 +177,28 @@
 
     .lang-switcher {
       position: relative;
-      width: min(100%, 272px);
-      min-width: 220px;
+      width: min(100%, 240px);
+      min-width: 180px;
       color: var(--white);
       font-family: var(--font-body);
     }
 
     .lang-switcher-toggle {
       width: 100%;
-      min-height: 56px;
-      padding: clamp(10px, 1.3vw, 14px) clamp(12px, 1.4vw, 16px);
+      min-height: 48px;
+      padding: clamp(8px, 1.1vw, 12px) clamp(10px, 1.1vw, 14px);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(10,12,20,0.85) 100%);
-      border: 1px solid rgba(168,242,42,0.12);
-      border-radius: 18px;
+      gap: 10px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(10,12,20,0.88) 100%);
+      border: 1px solid rgba(168,242,42,0.10);
+      border-radius: 14px;
       color: var(--white);
       cursor: pointer;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.04);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.03);
       -webkit-tap-highlight-color: transparent;
-      transition: border-color 250ms ease, background-color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
+      transition: border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
       appearance: none;
       -webkit-appearance: none;
     }
@@ -229,7 +229,7 @@
     }
 
     .lang-switcher-value {
-      font-size: clamp(14px, 1vw, 16px);
+      font-size: clamp(13px, 0.9vw, 15px);
       line-height: 1.15;
       font-weight: 600;
       color: var(--white);
@@ -237,15 +237,15 @@
       overflow: hidden;
       text-overflow: ellipsis;
       /* allow more room on larger screens, but keep truncation on very small widths */
-      max-width: clamp(120px, 40%, 220px);
+      max-width: clamp(140px, 45%, 200px);
     }
 
     .lang-switcher-chevron {
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
       flex-shrink: 0;
       color: var(--lime);
-      transition: transform 250ms ease, color 250ms ease;
+      transition: transform 220ms ease, color 220ms ease;
     }
 
     .lang-switcher.is-open .lang-switcher-chevron {
@@ -254,29 +254,29 @@
 
     .lang-switcher-menu {
       position: absolute;
-      top: calc(100% + 10px);
+      top: calc(100% + 8px);
       right: 0;
       left: auto;
       width: max-content;
       min-width: 100%;
-      max-width: min(92vw, 380px);
-      max-height: min(360px, calc(100vh - 120px));
+      max-width: min(92vw, 340px);
+      max-height: min(320px, calc(100vh - 120px));
       overflow: auto;
-      padding: 10px;
+      padding: 8px;
       margin: 0;
       display: grid;
       gap: 6px;
       background: rgba(10,12,20,0.92);
-      border: 1px solid rgba(168,242,42,0.15);
-      border-radius: 18px;
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      box-shadow: 0 24px 48px rgba(0,0,0,0.36);
+      border: 1px solid rgba(168,242,42,0.12);
+      border-radius: 16px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.32);
       opacity: 0;
       visibility: hidden;
-      transform: translateY(-8px) scale(0.98);
+      transform: translateY(-6px) scale(0.99);
       pointer-events: none;
-      transition: opacity 250ms ease, transform 250ms ease, visibility 0s linear 250ms;
+      transition: opacity 220ms ease, transform 220ms ease, visibility 0s linear 220ms;
       z-index: 120;
     }
 
@@ -290,19 +290,19 @@
 
     .lang-option {
       width: 100%;
-      min-height: 52px;
-      padding: 12px 14px;
+      min-height: 48px;
+      padding: 10px 12px;
       display: grid;
       grid-template-columns: minmax(0, 1fr);
       gap: 3px;
-      align-items: start;
+      align-items: center;
       text-align: left;
       border: 1px solid transparent;
-      border-radius: 14px;
+      border-radius: 12px;
       background: transparent;
       color: var(--gray-100);
       cursor: pointer;
-      transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+      transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
       appearance: none;
       -webkit-appearance: none;
     }
@@ -4309,9 +4309,9 @@
       "cta.desc": "நீங்கள் பயணிக்கும்போது அமைதியானது. உதவி தேவைப்படும்போது தயாராக இருக்கும்.",
       "cta.download": "Rescuel பதிவிறக்கு",
       "cta.features": "அனைத்து அம்சங்களையும் காண்க",
-      "footer.install": "நிறுவல் வழிகாட்டி",
-      "footer.tag": "Android பாதுகாப்பு பயன்பாடு",
-      "footer.copy": "© 2026 Rescuel. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை. <strong>Team Neurobyte</strong> ஆல் உருவாக்கப்பட்டது.",
+      "footer.install": "நிறுவல் கையேடு",
+      "footer.tag": "Android பாதுகாப்பு செயலி",
+      "footer.copy": "© 2026 Rescuel. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை. இது <strong>Team Neurobyte</strong> உருவாக்கப்பட்டது.",
       "quickbar.title": "Android ஐப் பயன்படுத்துகிறீர்களா?",
       "quickbar.desc": "முதலில் APK ஐப் பதிவிறக்கவும். நிறுவல் படிகள் மற்றும் அனுமதி குறிப்புகள் கீழே தயாராக உள்ளன.",
       "quickbar.cta": "APK பெறுக",
