@@ -1566,7 +1566,6 @@
       margin: 40px auto 0;
     }
 
-    .req-item {}
     .req-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-600); margin-bottom: 5px; font-family: var(--font-mono); }
     .req-val { font-size: 13px; color: var(--white); font-weight: 500; }
     .req-val .ok { color: var(--teal); display: flex; align-items: center; gap: 4px; }
@@ -1784,43 +1783,83 @@
     /* ══════════════════════════════════════════════════
        PERMISSIONS SECTION
     ══════════════════════════════════════════════════ */
+    .perm-section .sec-center {
+      width: min(100%, 1440px);
+      max-width: 1440px;
+    }
+
+    .perm-title {
+      font-size: clamp(2rem, 5vw, 5rem);
+      max-width: 13ch;
+      margin-left: auto;
+      margin-right: auto;
+      text-wrap: balance;
+    }
+
+    .perm-sub {
+      max-width: 560px;
+      margin: 0 auto clamp(32px, 4vw, 56px);
+      font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+      color: var(--gray-400);
+      line-height: 1.7;
+      text-wrap: balance;
+    }
+
     .perm-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 12px;
-      max-width: 960px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: clamp(12px, 1.4vw, 18px);
+      max-width: 1440px;
       margin: 0 auto;
+      align-items: stretch;
     }
 
     .perm-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 20px 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(26,31,43,0.96) 100%);
+      border: 1px solid rgba(168,242,42,0.12);
+      border-radius: clamp(16px, 1.4vw, 20px);
+      padding: clamp(18px, 2vw, 28px);
+      min-width: 0;
+      min-height: 100%;
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      transition: border-color 0.2s, transform 0.2s;
+      gap: clamp(12px, 1.2vw, 16px);
+      transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease, background-color 300ms ease;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.16);
     }
 
-    .perm-card:hover { border-color: var(--border-lime); transform: translateY(-2px); }
-
     .perm-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       background: var(--lime-subtle);
       border: 1px solid var(--border-lime);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      margin-top: 1px;
     }
 
-    .perm-icon svg { width: 16px; height: 16px; color: var(--lime); }
+    .perm-icon svg { width: 18px; height: 18px; color: var(--lime); }
 
-    .perm-name  { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 3px; font-family: var(--font-mono); }
-    .perm-why   { font-size: 12px; color: var(--gray-500); line-height: 1.55; }
+    .perm-name  { font-size: clamp(0.95rem, 1vw, 1.02rem); font-weight: 700; color: var(--white); margin-bottom: 6px; font-family: var(--font-mono); letter-spacing: 0.2px; }
+    .perm-why   { font-size: clamp(0.85rem, 0.95vw, 0.95rem); color: var(--gray-500); line-height: 1.6; overflow-wrap: anywhere; }
+
+    @media (hover: hover) and (pointer: fine) {
+      .perm-card:hover {
+        border-color: rgba(168,242,42,0.22);
+        transform: translateY(-4px);
+        box-shadow: 0 18px 34px rgba(0,0,0,0.24);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .perm-grid,
+      .perm-card {
+        transition: none !important;
+      }
+    }
 
     /* ══════════════════════════════════════════════════
        PROMISE / CTA SECTION
@@ -2256,6 +2295,40 @@
       .download-pill,
       .dl-meta-chip { width: 100%; justify-content: center; }
     }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .perm-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .perm-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 767px) {
+      .perm-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .perm-title {
+        max-width: 18ch;
+      }
+
+      .perm-title br {
+        display: none;
+      }
+
+      .perm-sub {
+        margin-bottom: 32px;
+      }
+
+      .perm-card {
+        transform: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2288,14 +2361,14 @@
     <span data-i18n="lang.label">Language</span>
     <select id="language-select" aria-label="Select language">
       <option value="en">English</option>
-      <option value="hi">Hindi</option>
-      <option value="mr">Marathi</option>
+      <option value="hi">हिन्दी (Hindi)</option>
       <option value="gu">ગુજરાતી (Gujarati)</option>
-      <option value="zh">简体中文 (Chinese)</option>
-      <option value="ja">日本語 (Japanese)</option>
-      <option value="es">Español (Spanish)</option>
+      <option value="mr">मराठी (Marathi)</option>
       <option value="ta">தமிழ் (Tamil)</option>
       <option value="ml">മലയാളം (Malayalam)</option>
+      <option value="es">Español (Spanish)</option>
+      <option value="zh">简体中文 (Chinese)</option>
+      <option value="ja">日本語 (Japanese)</option>
     </select>
   </label>
 
@@ -2991,11 +3064,12 @@
 <!-- ════════════════════════════════════
      PERMISSIONS
 ════════════════════════════════════ -->
-<section style="background:var(--bg);border-top:1px solid var(--border)">
+<section class="perm-section" style="background:var(--bg);border-top:1px solid var(--border)">
   <div class="sec-center" style="text-align:center">
     <div class="reveal" style="margin-bottom:48px">
       <div class="sec-eyebrow" data-i18n="perm.eyebrow">Android Permissions</div>
-      <h2 class="sec-title" data-i18n-html="perm.title">Only what's needed.<br/>Nothing more.</h2>
+      <h2 class="sec-title perm-title" data-i18n-html="perm.title">Only what's needed.<br/>Nothing more.</h2>
+      <p class="sec-sub perm-sub">Each permission maps to a safety feature, keeps the experience lightweight, and stays comfortable on Android.</p>
     </div>
 
     <div class="perm-grid reveal">
