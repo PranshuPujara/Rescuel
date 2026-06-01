@@ -2536,7 +2536,7 @@
     <li><a href="#download" data-i18n="nav.download">Download</a></li>
     <li><a href="#install" data-i18n="nav.install">How to Install</a></li>
     <li>
-      <a href="#download" class="nav-pill">
+      <a href="./downloads/Rescuel.apk" class="nav-pill" download>
         <span class="nav-pill-dot"></span>
         <span data-i18n="nav.apk">Get APK</span>
       </a>
@@ -2624,7 +2624,7 @@
       </div>
 
       <div class="hero-actions">
-        <a href="https://github.com/aumsantoki99-web/Road-SOS/releases/latest/download/Rescuel.apk" class="btn-lime" download>
+        <a href="./downloads/Rescuel.apk" class="btn-lime" download>
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
           </svg>
@@ -3031,7 +3031,7 @@
             <li data-i18n-html="download.card1.step4"><span class="step-num">4</span>Tap Install, open Rescuel, and sign up with email</li>
           </ol>
         </div>
-        <a href="https://github.com/aumsantoki99-web/Road-SOS/releases/latest/download/Rescuel.apk" class="dl-cta lime-cta" download>
+        <a href="./downloads/Rescuel.apk" class="dl-cta lime-cta" download>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
           <span data-i18n="download.card1.cta">Download APK</span>
         </a>
@@ -3319,7 +3319,7 @@
     </p>
 
     <div class="cta-actions">
-      <a href="https://github.com/aumsantoki99-web/Road-SOS/releases/latest/download/Rescuel.apk" class="btn-lime" download>
+      <a href="./downloads/Rescuel.apk" class="btn-lime" download>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
         <span data-i18n="cta.download">Download Rescuel</span>
       </a>
@@ -3376,7 +3376,7 @@
       <strong data-i18n="quickbar.title">Using Android?</strong>
       <span data-i18n="quickbar.desc">Download the APK first. Install steps and permission notes are ready below.</span>
     </div>
-    <a href="#download" class="btn-lime">
+    <a href="./downloads/Rescuel.apk" class="btn-lime" download>
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
       <span data-i18n="quickbar.cta">Get APK</span>
     </a>
@@ -4756,12 +4756,7 @@
     copyCmd('npx expo start && npx expo run:android');
   }
 
-  function handleApkDownload(e) {
-    // Direct download to GitHub APK is now handled by href attribute
-    // This function is deprecated but kept for backward compatibility
-    e.preventDefault();
-    window.location.href = 'https://github.com/aumsantoki99-web/Road-SOS/releases/latest/download/Rescuel.apk';
-  }
+  /* Deprecated download helper removed: anchors now point to local APK file */
 
   /* ── Smooth scroll ──────────────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
