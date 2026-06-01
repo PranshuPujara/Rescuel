@@ -116,6 +116,32 @@
       transition: background 0.3s, border-color 0.3s;
     }
 
+    nav > .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-shrink: 0;
+    }
+
+    nav > .lang-switcher {
+      margin-left: 0;
+      flex-shrink: 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-shrink: 0;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
     nav.scrolled {
       background: rgba(5,7,13,0.97);
       border-bottom-color: rgba(168,242,42,0.08);
@@ -177,20 +203,26 @@
 
     .lang-switcher {
       position: relative;
-      width: min(100%, 240px);
-      min-width: 180px;
+      width: min(100%, 160px);
+      min-width: auto;
       color: var(--white);
       font-family: var(--font-body);
     }
 
+    @media (max-width: 767px) {
+      .lang-switcher {
+        width: min(100%, 100px);
+      }
+    }
+
     .lang-switcher-toggle {
       width: 100%;
-      min-height: 48px;
-      padding: clamp(8px, 1.1vw, 12px) clamp(10px, 1.1vw, 14px);
+      min-height: 36px;
+      padding: 4px 6px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 3px;
       background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(10,12,20,0.88) 100%);
       border: 1px solid rgba(168,242,42,0.10);
       border-radius: 14px;
@@ -212,37 +244,36 @@
     .lang-switcher-copy {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
       min-width: 0;
       text-align: left;
     }
 
     .lang-switcher-label {
-      font-size: 11px;
+      display: inline-block;
+      font-size: 9px;
       font-weight: 700;
-      letter-spacing: 1.6px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       color: var(--gray-500);
       line-height: 1;
-      display: inline-block;
       white-space: nowrap;
     }
 
     .lang-switcher-value {
-      font-size: clamp(13px, 0.9vw, 15px);
-      line-height: 1.15;
+      font-size: 13px;
+      line-height: 1.1;
       font-weight: 600;
       color: var(--white);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      /* allow more room on larger screens, but keep truncation on very small widths */
-      max-width: clamp(140px, 45%, 200px);
+      max-width: 90px;
     }
 
     .lang-switcher-chevron {
-      width: 16px;
-      height: 16px;
+      width: 10px;
+      height: 10px;
       flex-shrink: 0;
       color: var(--lime);
       transition: transform 220ms ease, color 220ms ease;
@@ -254,18 +285,18 @@
 
     .lang-switcher-menu {
       position: absolute;
-      top: calc(100% + 8px);
+      top: calc(100% + 4px);
       right: 0;
       left: auto;
       width: max-content;
       min-width: 100%;
-      max-width: min(92vw, 340px);
-      max-height: min(320px, calc(100vh - 120px));
+      max-width: min(90vw, 180px);
+      max-height: min(260px, calc(100vh - 80px));
       overflow: auto;
-      padding: 8px;
+      padding: 4px;
       margin: 0;
       display: grid;
-      gap: 6px;
+      gap: 3px;
       background: rgba(10,12,20,0.92);
       border: 1px solid rgba(168,242,42,0.12);
       border-radius: 16px;
@@ -290,15 +321,15 @@
 
     .lang-option {
       width: 100%;
-      min-height: 48px;
-      padding: 10px 12px;
+      min-height: 36px;
+      padding: 6px 8px;
       display: grid;
       grid-template-columns: minmax(0, 1fr);
-      gap: 3px;
+      gap: 1px;
       align-items: center;
       text-align: left;
       border: 1px solid transparent;
-      border-radius: 12px;
+      border-radius: 8px;
       background: transparent;
       color: var(--gray-100);
       cursor: pointer;
@@ -331,22 +362,37 @@
     }
 
     .lang-native {
-      font-size: clamp(14px, 1vw, 16px);
-      line-height: 1.25;
+      font-size: 11px;
+      line-height: 1.15;
       font-weight: 700;
-      letter-spacing: 0.1px;
+      letter-spacing: 0;
       font-feature-settings: 'kern' 1, 'liga' 1;
     }
 
     .lang-english {
-      font-size: 12px;
-      line-height: 1.2;
+      font-size: 9px;
+      line-height: 1.1;
       color: var(--gray-400);
-      letter-spacing: 0.2px;
+      letter-spacing: 0;
     }
 
     .lang-option.is-selected .lang-english {
       color: rgba(5,7,13,0.82);
+    }
+
+    @media (max-width: 767px) {
+      .lang-switcher-label {
+        display: none;
+      }
+
+      .lang-switcher-value {
+        font-size: 11px;
+        max-width: 60px;
+      }
+
+      .lang-switcher-copy {
+        gap: 3px;
+      }
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -2414,9 +2460,9 @@
       }
 
       .lang-switcher-toggle {
-        min-height: 54px;
-        padding: 12px 14px;
-        border-radius: 16px;
+        min-height: 40px;
+        padding: 6px 8px;
+        border-radius: 10px;
       }
 
       .lang-switcher-menu {
@@ -2497,29 +2543,31 @@
     </li>
   </ul>
 
-  <div class="lang-switcher" id="language-switcher">
-    <button
-      type="button"
-      class="lang-switcher-toggle"
-      id="language-trigger"
-      aria-haspopup="listbox"
-      aria-expanded="false"
-      aria-controls="language-menu"
-    >
-      <span class="lang-switcher-copy">
-        <span class="lang-switcher-label" data-i18n="lang.label">Language</span>
-        <span class="lang-switcher-value" id="language-selected">English</span>
-      </span>
-      <svg class="lang-switcher-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
+  <div class="nav-right">
+    <div class="lang-switcher" id="language-switcher">
+      <button
+        type="button"
+        class="lang-switcher-toggle"
+        id="language-trigger"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        aria-controls="language-menu"
+      >
+        <span class="lang-switcher-copy">
+          <span class="lang-switcher-label" data-i18n="lang.label">Language</span>
+          <span class="lang-switcher-value" id="language-selected">English</span>
+        </span>
+        <svg class="lang-switcher-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
 
-    <div class="lang-switcher-menu" id="language-menu" role="listbox" aria-label="Select language" tabindex="-1"></div>
-  </div>
+      <div class="lang-switcher-menu" id="language-menu" role="listbox" aria-label="Select language" tabindex="-1"></div>
+    </div>
 
-  <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
-    <span></span><span></span><span></span>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
