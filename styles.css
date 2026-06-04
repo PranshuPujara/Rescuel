@@ -2495,3 +2495,203 @@
         transform: none !important;
       }
     }
+
+    /* ══════════════════════════════════════════════════
+         MODALS: Privacy Policy & Terms of Service
+    ══════════════════════════════════════════════════ */
+
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      z-index: 501;
+      background: var(--surface);
+      border: 1px solid var(--border-lime);
+      border-radius: var(--radius-lg);
+      width: min(760px, 92vw);
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .modal-header h2 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--white);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--gray-400);
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--lime);
+    }
+
+    .modal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 28px;
+    }
+
+    .modal-body::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+      background: var(--surface-2);
+      border-radius: 4px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+      background: var(--lime);
+      border-radius: 4px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb:hover {
+      background: var(--lime-dim);
+    }
+
+    .policy-section {
+      margin-bottom: 24px;
+    }
+
+    .policy-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-section h3 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--lime);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .policy-section p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--gray-400);
+      margin-bottom: 12px;
+    }
+
+    .policy-section ul {
+      list-style: none;
+      margin-left: 16px;
+      margin-bottom: 12px;
+    }
+
+    .policy-section li {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .policy-section li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--lime);
+    }
+
+    .policy-intro {
+      padding: 16px;
+      background: var(--surface-2);
+      border-left: 3px solid var(--lime);
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--gray-400);
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .modal {
+        width: 92vw;
+        max-height: 85vh;
+      }
+
+      .modal-header {
+        padding: 20px;
+      }
+
+      .modal-header h2 {
+        font-size: 20px;
+      }
+
+      .modal-body {
+        padding: 20px;
+      }
+
+      .policy-section h3 {
+        font-size: 15px;
+      }
+
+      .policy-section p,
+      .policy-section li {
+        font-size: 13px;
+      }
+
+      .policy-intro {
+        font-size: 12px;
+        padding: 12px;
+      }
+    }
+

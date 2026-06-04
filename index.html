@@ -851,6 +851,8 @@
       <li><a href="#tech" data-i18n="nav.tech">Tech Stack</a></li>
       <li><a href="#download" data-i18n="nav.download">Download</a></li>
       <li><a href="#install" data-i18n="footer.install">Install Guide</a></li>
+      <li><a href="#" onclick="openModal('privacy'); return false;" data-i18n="footer.privacy">Privacy Policy</a></li>
+      <li><a href="#" onclick="openModal('terms'); return false;" data-i18n="footer.terms">Terms of Service</a></li>
     </ul>
 
     <div class="footer-right">
@@ -883,6 +885,25 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
       <span data-i18n="quickbar.cta">Get APK</span>
     </a>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     MODALS: Privacy Policy & Terms of Service
+════════════════════════════════════ -->
+<div id="modal-backdrop" class="modal-backdrop" onclick="closeModal()"></div>
+<div id="modal" class="modal">
+  <div class="modal-header">
+    <h2 id="modal-title">Privacy Policy</h2>
+    <button class="modal-close" onclick="closeModal()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div id="modal-content"></div>
   </div>
 </div>
 

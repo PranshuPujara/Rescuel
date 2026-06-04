@@ -1411,3 +1411,220 @@ const translations = {
   document.addEventListener('click', (e) => {
     if (menuOpen && !e.target.closest('nav')) toggleMenu();
   });
+
+  /* ══════════════════════════════════════════════════
+       MODAL: Privacy Policy & Terms of Service
+  ══════════════════════════════════════════════════ */
+
+  const MODAL_CONTENT = {
+    privacy: {
+      title: "Privacy Policy",
+      content: `
+        <div class="policy-intro">
+          <strong>Last Updated:</strong> January 2026<br/>
+          Rescuel respects your privacy. This policy explains how we collect, use, and protect your data.
+        </div>
+
+        <div class="policy-section">
+          <h3>1. Information We Collect</h3>
+          <p>We collect information you provide directly:</p>
+          <ul>
+            <li>Email address and password during sign-up</li>
+            <li>Emergency contact information</li>
+            <li>Device identifiers and app analytics</li>
+            <li>Real-time GPS location during active rides</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>2. How We Use Your Data</h3>
+          <p>Your information is used to:</p>
+          <ul>
+            <li>Provide ride tracking and crash detection</li>
+            <li>Send SOS alerts to your emergency contacts</li>
+            <li>Locate nearby hospitals in emergencies</li>
+            <li>Improve app performance and safety features</li>
+            <li>Send important security updates and notifications</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>3. Data Security</h3>
+          <p>We implement industry-standard encryption (SSL/TLS) for all data transmission. Your location is encrypted end-to-end and only shared with emergency contacts when you activate SOS. Authentication credentials are hashed and never stored in plain text.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>4. Location Tracking</h3>
+          <p>Rescuel uses GPS to track your ride and detect crashes. Location data is <strong>only active when you start a ride</strong>. You can always disable location tracking, but crash detection and SOS features require it to function properly.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>5. Third-Party Sharing</h3>
+          <p>We do not sell your personal data. Location and SOS information is shared only with:</p>
+          <ul>
+            <li>Your designated emergency contacts (when SOS is triggered)</li>
+            <li>Hospital/medical services if you request emergency help</li>
+            <li>Service providers who help us run the app (data processors)</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>6. Data Retention</h3>
+          <p>Ride history and GPS logs are kept for 90 days. Emergency contact details are stored until you delete your account. You can request all your data at any time via the app settings.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>7. Your Rights</h3>
+          <p>You have the right to:</p>
+          <ul>
+            <li>Access all data we hold about you</li>
+            <li>Request corrections to your personal information</li>
+            <li>Delete your account and associated data</li>
+            <li>Opt out of analytics and non-critical notifications</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>8. Children's Privacy</h3>
+          <p>Rescuel is not intended for users under 16 years old. We do not knowingly collect data from children. If we discover data from a user under 16, we will delete it immediately.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>9. Changes to This Policy</h3>
+          <p>We may update this Privacy Policy as needed. We will notify you of material changes by updating the "Last Updated" date and sending an in-app notification.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>10. Contact Us</h3>
+          <p>Questions about your privacy? Contact us at: <strong>privacy@rescuel.app</strong></p>
+        </div>
+      `
+    },
+    terms: {
+      title: "Terms of Service",
+      content: `
+        <div class="policy-intro">
+          <strong>Last Updated:</strong> January 2026<br/>
+          By downloading and using Rescuel, you agree to these Terms of Service. Please read them carefully.
+        </div>
+
+        <div class="policy-section">
+          <h3>1. Acceptance of Terms</h3>
+          <p>By accessing and using Rescuel, you agree to be bound by these Terms. If you do not agree, do not use the app. We reserve the right to modify these Terms at any time. Continued use after changes constitutes acceptance.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>2. Eligibility</h3>
+          <p>You must be at least 16 years old to use Rescuel. By using the app, you represent that you meet this requirement and that all information you provide is accurate and complete.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>3. User Responsibilities</h3>
+          <p>You agree to:</p>
+          <ul>
+            <li>Keep your login credentials confidential and secure</li>
+            <li>Use the app only for its intended purpose (ride safety)</li>
+            <li>Comply with all applicable laws and regulations</li>
+            <li>Not reverse-engineer, decompile, or hack the app</li>
+            <li>Not share your account with other users</li>
+            <li>Not use the app to harass, threaten, or harm others</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>4. Use of Services</h3>
+          <p>Rescuel provides real-time ride tracking, crash detection, and emergency SOS services. While we strive for accuracy, <strong>the app is provided on an "as-is" basis</strong>. We do not guarantee 100% crash detection or SOS reliability due to factors beyond our control (network, GPS, device hardware).</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>5. Emergency Services Disclaimer</h3>
+          <p><strong>Important:</strong> Rescuel is not a replacement for emergency services (911, local ambulance). SOS alerts are sent to your designated contacts, not directly to emergency dispatch. In a life-threatening situation, always call emergency services immediately.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>6. Location & Permissions</h3>
+          <p>To use Rescuel, you grant the app permission to access:</p>
+          <ul>
+            <li>GPS location (during active rides)</li>
+            <li>Device motion sensors (accelerometer, gyroscope)</li>
+            <li>Phone contacts (to send emergency SOS)</li>
+            <li>Notifications and vibration</li>
+          </ul>
+          <p>You can revoke these permissions in your device settings, but some features will not work.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>7. Limitation of Liability</h3>
+          <p><strong>To the maximum extent permitted by law, Rescuel is provided without warranties.</strong> We are not liable for:</p>
+          <ul>
+            <li>Missed crash detection or delayed SOS alerts</li>
+            <li>Inaccurate GPS location data</li>
+            <li>Lost or corrupted ride data</li>
+            <li>Third-party app crashes or incompatibilities</li>
+            <li>Network outages or connectivity issues</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h3>8. Intellectual Property</h3>
+          <p>All content, code, and design in Rescuel are owned by Rescuel or our licensors. You may not copy, modify, or redistribute the app without permission. Rescuel® is a registered trademark.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>9. Account Termination</h3>
+          <p>We reserve the right to suspend or terminate your account if you violate these Terms. You may delete your account at any time via the app settings. Termination does not eliminate your obligation to comply with these Terms.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>10. Governing Law</h3>
+          <p>These Terms are governed by and construed in accordance with applicable laws. Any disputes arising out of or relating to these Terms shall be resolved through binding arbitration or courts of competent jurisdiction.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>11. Indemnification</h3>
+          <p>You agree to indemnify and hold harmless Rescuel from any claims, damages, or costs arising from your use of the app or violation of these Terms.</p>
+        </div>
+
+        <div class="policy-section">
+          <h3>12. Contact & Support</h3>
+          <p>For questions about these Terms, contact: <strong>legal@rescuel.app</strong></p>
+        </div>
+      `
+    }
+  };
+
+  function openModal(type) {
+    const backdrop = document.getElementById('modal-backdrop');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+
+    if (MODAL_CONTENT[type]) {
+      modalTitle.textContent = MODAL_CONTENT[type].title;
+      modalContent.innerHTML = MODAL_CONTENT[type].content;
+      
+      backdrop.classList.add('active');
+      modal.classList.add('active');
+      document.body.classList.add('modal-open');
+      
+      document.addEventListener('keydown', handleEscKey);
+    }
+  }
+
+  function closeModal() {
+    const backdrop = document.getElementById('modal-backdrop');
+    const modal = document.getElementById('modal');
+
+    backdrop.classList.remove('active');
+    modal.classList.remove('active');
+    document.body.classList.remove('modal-open');
+    
+    document.removeEventListener('keydown', handleEscKey);
+  }
+
+  function handleEscKey(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  }
+
